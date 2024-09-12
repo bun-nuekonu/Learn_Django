@@ -13,8 +13,8 @@
   <p class="h5 my-4">{{message|safe}}</p>
   <form action="{% url 'index' %}" method="post">
     {% csrf_token %}
-    {{form}}
-    <input type="submit" value="click" class="btn btn-primary">
+    {{form.as_p}}
+    <input type="submit" value="click" class="btn btn-primary my-2">
   </form>
 </body>
 </html>
