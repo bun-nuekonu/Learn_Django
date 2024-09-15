@@ -18,7 +18,7 @@ class HelloView(TemplateView):
     return render(request, 'hello/index.html', self.params)
   
   def post(self, request):
-    msg = 'おまえは<b>' + request.POST['name'] + '()' + request.POST['age'] + '()' + 'さんです。<br>メールアドレスは<b>', + request.POST['mail']
+    msg = f'あなたは<b>{request.POST["name"]}({request.POST["age"]})さんです。<br>メールアドレスは<b>{request.POST["mail"]}です。'
     self.params['message'] = msg
     self.params['form'] = HelloForm(request.GET)
-    return render(request, 'hello/index', self.params)
+    return render(request, 'hello/index.html', self.params)
